@@ -15,8 +15,12 @@ namespace ContosoUniversity.Logging
         void Warning(string fmt, params object[] vars);
         void Warning(Exception exception, string fmt, params object[] vars);
 
+        void Error(string message);
+        void Error(string fmt, params object[] vars);
+        void Error(Exception exception, string fmt, params object[] vars);
+
         void TraceApi(string componentName, string method, TimeSpan timeSpan);
         void TraceApi(string componentName, string method, TimeSpan timeSpan, string properties);
-        void TraceApr(string componentName, string method, TimeSpan timeSpan, string fmt, params object[] vars);
+        void TraceApi(string componentName, string method, TimeSpan timeSpan, string fmt, params object[] vars);
     }
 }
