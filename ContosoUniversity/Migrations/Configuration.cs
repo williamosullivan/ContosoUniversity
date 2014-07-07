@@ -8,7 +8,7 @@ namespace ContosoUniversity.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ContosoUniversity.DAL.SchoolContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<SchoolContext>
     {
         public Configuration()
         {
@@ -42,6 +42,16 @@ namespace ContosoUniversity.Migrations
             instructors.ForEach(s => context.Instructors.AddOrUpdate(p => p.LastName, s));
             context.SaveChanges();
 
+            var departments = new List<Department>
+            {
+                new Department { Name = "English", Budget = 350000, StartDate = DateTime.Parse("2007-09-01"), InstructorID = instructors.Single(i => i.LastName == "Abercrombie").ID },
+                new Department { Name = "Mathematics", Budget = 100000, StartDate = DateTime.Parse("2007-09-01"), InstructorID = instructors.Single(i => i.LastName == "Abercrombie").ID },
+                new Department { Name = "Engineering", Budget = 350000, StartDate = DateTime.Parse("2007-09-01"), InstructorID = instructors.Single(i => i.LastName == "Abercrombie").ID },
+                new Department { Name = "Economics", Budget = 100000, StartDate = DateTime.Parse("2007-09-01"), InstructorID = instructors.Single(i => i.LastName == "Abercrombie").ID }
+            };
+            departments.ForEach(s => context.Departments.AddOrUpdate(p => p.Name, s));
+            context.SaveChanges();
+
             var courses = new List<Course>
             {
                 new Course {CourseID = 1050, Title = "Chemistry", Credits = 3, },
@@ -53,16 +63,6 @@ namespace ContosoUniversity.Migrations
                 new Course {CourseID = 2042, Title = "Literature", Credits = 4, }
             };
             courses.ForEach(s => context.Courses.AddOrUpdate(p => p.Title, s));
-            context.SaveChanges();
-
-            var departments = new List<Department>
-            {
-                new Department { Name = "English", Budget = 350000, StartDate = DateTime.Parse("2007-09-01"), InstructorID = instructors.Single(i => i.LastName == "Abercrombie").ID },
-                new Department { Name = "Mathematics", Budget = 100000, StartDate = DateTime.Parse("2007-09-01"), InstructorID = instructors.Single(i => i.LastName == "Abercrombie").ID },
-                new Department { Name = "Engineering", Budget = 350000, StartDate = DateTime.Parse("2007-09-01"), InstructorID = instructors.Single(i => i.LastName == "Abercrombie").ID },
-                new Department { Name = "Economics", Budget = 100000, StartDate = DateTime.Parse("2007-09-01"), InstructorID = instructors.Single(i => i.LastName == "Abercrombie").ID }
-            };
-            departments.ForEach(s => context.Departments.AddOrUpdate(p => p.Name, s));
             context.SaveChanges();
 
             var officeAssignments = new List<OfficeAssignment>
@@ -82,6 +82,7 @@ namespace ContosoUniversity.Migrations
             AddOrUpdateInstructor(context, "Trigonometry", "Harui" );
             AddOrUpdateInstructor(context, "Composition", "Abercrombie" );
             AddOrUpdateInstructor(context, "Literature", "Abercrombie" );
+            context.SaveChanges();
 
             var enrollments = new List<Enrollment>
             {
