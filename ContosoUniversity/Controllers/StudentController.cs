@@ -10,6 +10,7 @@ using ContosoUniversity.DAL;
 using ContosoUniversity.Models;
 using System.Diagnostics;
 using PagedList;
+using System.Data.Entity.Infrastructure;
 
 namespace ContosoUniversity.Controllers
 {
@@ -22,6 +23,17 @@ namespace ContosoUniversity.Controllers
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
             var students = from s in db.Students
                            select s;
             if (!String.IsNullOrEmpty(searchString))
@@ -43,7 +55,9 @@ namespace ContosoUniversity.Controllers
                     students = students.OrderBy(s => s.LastName);
                     break;
             }
-            return View(db.Students.ToList());
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(students.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Student/Details/5
@@ -83,7 +97,7 @@ namespace ContosoUniversity.Controllers
                     return RedirectToAction("Index");
                 }
             }
-            catch (DataException)
+            catch (RetryLimitExceededException)
             {
                 Trace.TraceError("Error");
                 ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator");
@@ -122,7 +136,7 @@ namespace ContosoUniversity.Controllers
                     return RedirectToAction("Index");
                 }
             }
-            catch (DataException)
+            catch (RetryLimitExceededException)
             {
                 Trace.TraceError("Error");
                 ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator");
@@ -160,7 +174,7 @@ namespace ContosoUniversity.Controllers
                 db.Students.Remove(student);
                 db.SaveChanges();
             }
-            catch (DataException)
+            catch (RetryLimitExceededException)
             {
                 Trace.TraceError("Error");
                 return RedirectToAction("Delete", new { id = id, saveChangesError = true });
