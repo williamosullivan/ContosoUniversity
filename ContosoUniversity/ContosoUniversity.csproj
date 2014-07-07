@@ -139,9 +139,20 @@
     <Compile Include="Migrations\201407071655107_InitialCreate.Designer.cs">
       <DependentUpon>201407071655107_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201407071734559_MaxLengthOnNames.cs" />
+    <Compile Include="Migrations\201407071734559_MaxLengthOnNames.Designer.cs">
+      <DependentUpon>201407071734559_MaxLengthOnNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407071736390_ColumnFirstName.cs" />
+    <Compile Include="Migrations\201407071736390_ColumnFirstName.Designer.cs">
+      <DependentUpon>201407071736390_ColumnFirstName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Enrollment.cs" />
+    <Compile Include="Models\Instructor.cs" />
+    <Compile Include="Models\OfficeAssignment.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\EnrollmentDateGroup.cs" />
@@ -156,6 +167,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\ContosoWO.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -202,6 +214,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201407071655107_InitialCreate.resx">
       <DependentUpon>201407071655107_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407071734559_MaxLengthOnNames.resx">
+      <DependentUpon>201407071734559_MaxLengthOnNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407071736390_ColumnFirstName.resx">
+      <DependentUpon>201407071736390_ColumnFirstName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
