@@ -55,8 +55,10 @@ namespace ContosoUniversity.Migrations
                 .ForeignKey("dbo.Instructor", t => t.InstructorID, cascadeDelete: true)
                 .Index(t => t.CourseID)
                 .Index(t => t.InstructorID);
-            
-            AddColumn("dbo.Course", "DepartmentID", c => c.Int(nullable: false));
+
+            Sql("INSERT INTO dbo.Department (Name, Budget, StartDate) VALUES ('Temp', 0.00, GETDATE())");
+
+            AddColumn("dbo.Course", "DepartmentID", c => c.Int(nullable: false, defaultValue: 1));
             AlterColumn("dbo.Course", "Title", c => c.String(maxLength: 50));
             AlterColumn("dbo.Student", "LastName", c => c.String(nullable: false, maxLength: 50));
             AlterColumn("dbo.Student", "FirstName", c => c.String(nullable: false, maxLength: 50));

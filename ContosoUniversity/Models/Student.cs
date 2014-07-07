@@ -9,7 +9,6 @@ namespace ContosoUniversity.Models
 {
     public class Student
     {
-        [Key]
         public int ID { get; set; } 
         [Required]
         [StringLength(50)]
