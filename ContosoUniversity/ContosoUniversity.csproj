@@ -135,21 +135,21 @@
     </Compile>
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\Logger.cs" />
-    <Compile Include="Migrations\201407071655107_InitialCreate.cs" />
-    <Compile Include="Migrations\201407071655107_InitialCreate.Designer.cs">
-      <DependentUpon>201407071655107_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201407081300303_InitialCreate.cs" />
+    <Compile Include="Migrations\201407081300303_InitialCreate.Designer.cs">
+      <DependentUpon>201407081300303_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201407071734559_MaxLengthOnNames.cs" />
-    <Compile Include="Migrations\201407071734559_MaxLengthOnNames.Designer.cs">
-      <DependentUpon>201407071734559_MaxLengthOnNames.cs</DependentUpon>
+    <Compile Include="Migrations\201407081301062_MaxLengthOnNames.cs" />
+    <Compile Include="Migrations\201407081301062_MaxLengthOnNames.Designer.cs">
+      <DependentUpon>201407081301062_MaxLengthOnNames.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201407071736390_ColumnFirstName.cs" />
-    <Compile Include="Migrations\201407071736390_ColumnFirstName.Designer.cs">
-      <DependentUpon>201407071736390_ColumnFirstName.cs</DependentUpon>
+    <Compile Include="Migrations\201407081302054_ColumnFirstName.cs" />
+    <Compile Include="Migrations\201407081302054_ColumnFirstName.Designer.cs">
+      <DependentUpon>201407081302054_ColumnFirstName.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201407072030221_ComplexDataModel.cs" />
-    <Compile Include="Migrations\201407072030221_ComplexDataModel.Designer.cs">
-      <DependentUpon>201407072030221_ComplexDataModel.cs</DependentUpon>
+    <Compile Include="Migrations\201407081302338_ComplexDataModel.cs" />
+    <Compile Include="Migrations\201407081302338_ComplexDataModel.Designer.cs">
+      <DependentUpon>201407081302338_ComplexDataModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
@@ -218,17 +218,17 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201407071655107_InitialCreate.resx">
-      <DependentUpon>201407071655107_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201407081300303_InitialCreate.resx">
+      <DependentUpon>201407081300303_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407071734559_MaxLengthOnNames.resx">
-      <DependentUpon>201407071734559_MaxLengthOnNames.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201407081301062_MaxLengthOnNames.resx">
+      <DependentUpon>201407081301062_MaxLengthOnNames.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407071736390_ColumnFirstName.resx">
-      <DependentUpon>201407071736390_ColumnFirstName.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201407081302054_ColumnFirstName.resx">
+      <DependentUpon>201407081302054_ColumnFirstName.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407072030221_ComplexDataModel.resx">
-      <DependentUpon>201407072030221_ComplexDataModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201407081302338_ComplexDataModel.resx">
+      <DependentUpon>201407081302338_ComplexDataModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -5,22 +5,22 @@ namespace ContosoUniversity.Migrations
     using System.Data.Entity.Migrations;
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
-    
-    [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class MaxLengthOnNames : IMigrationMetadata
+
+    [GeneratedCode("EntityFramework.Migrations", "6.1.0-beta1-30206")]
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(MaxLengthOnNames));
-        
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+
         string IMigrationMetadata.Id
         {
-            get { return "201407071734559_MaxLengthOnNames"; }
+            get { return "201402242126344_InitialCreate"; }
         }
-        
+
         string IMigrationMetadata.Source
         {
             get { return null; }
         }
-        
+
         string IMigrationMetadata.Target
         {
             get { return Resources.GetString("Target"); }
