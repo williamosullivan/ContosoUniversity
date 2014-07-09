@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure.Interception;
@@ -39,14 +36,19 @@ namespace ContosoUniversity.DAL
 
         private SqlException CreateDummySqlException()
         {
+            // The instance of SQL Server you attempted to connect to does not support encryption
             var sqlErrorNumber = 20;
+
             var sqlErrorCtor = typeof(SqlError).GetConstructors(BindingFlags.Instance | BindingFlags.NonPublic).Where(c => c.GetParameters().Count() == 7).Single();
-            var sqlError = sqlErrorCtor.Invoke(new object[] {sqlErrorNumber, (byte)0, "", "", 1 });
+            var sqlError = sqlErrorCtor.Invoke(new object[] { sqlErrorNumber, (byte)0, (byte)0, "", "", "", 1 });
+
             var errorCollection = Activator.CreateInstance(typeof(SqlErrorCollection), true);
-            var AddMethod = typeof(SqlErrorCollection).GetMethod("Add", BindingFlags.Instance | BindingFlags.NonPublic);
-            AddMethod.Invoke(errorCollection, new[] { sqlError });
+            var addMethod = typeof(SqlErrorCollection).GetMethod("Add", BindingFlags.Instance | BindingFlags.NonPublic);
+            addMethod.Invoke(errorCollection, new[] { sqlError });
+
             var sqlExceptionCtor = typeof(SqlException).GetConstructors(BindingFlags.Instance | BindingFlags.NonPublic).Where(c => c.GetParameters().Count() == 4).Single();
-            var sqlException = (SqlException)sqlErrorCtor.Invoke(new object[] { "Dumy", errorCollection, null, Guid.NewGuid() });
+            var sqlException = (SqlException)sqlExceptionCtor.Invoke(new object[] { "Dummy", errorCollection, null, Guid.NewGuid() });
+
             return sqlException;
         }
     }

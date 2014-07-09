@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace ContosoUniversity.Logging
 {
@@ -19,8 +16,9 @@ namespace ContosoUniversity.Logging
         void Error(string fmt, params object[] vars);
         void Error(Exception exception, string fmt, params object[] vars);
 
-        void TraceApi(string componentName, string method, TimeSpan timeSpan);
-        void TraceApi(string componentName, string method, TimeSpan timeSpan, string properties);
-        void TraceApi(string componentName, string method, TimeSpan timeSpan, string fmt, params object[] vars);
+        void TraceApi(string componentName, string method, TimeSpan timespan);
+        void TraceApi(string componentName, string method, TimeSpan timespan, string properties);
+        void TraceApi(string componentName, string method, TimeSpan timespan, string fmt, params object[] vars);
+
     }
 }

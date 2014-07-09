@@ -6,9 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using ContosoUniversity.DAL;
 using ContosoUniversity.Models;
-using System.Diagnostics;
+using ContosoUniversity.DAL;
 using PagedList;
 using System.Data.Entity.Infrastructure;
 
@@ -18,11 +17,13 @@ namespace ContosoUniversity.Controllers
     {
         private SchoolContext db = new SchoolContext();
 
-        // GET: Student
-        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
+        // GET: /Student/
+        public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
+            ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
             if (searchString != null)
             {
                 page = 1;
@@ -38,7 +39,8 @@ namespace ContosoUniversity.Controllers
                            select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                students = students.Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper()) || s.FirstMidName.ToUpper().Contains(searchString.ToUpper()));
+                students = students.Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper())
+                                       || s.FirstMidName.ToUpper().Contains(searchString.ToUpper()));
             }
             switch (sortOrder)
             {
@@ -51,16 +53,17 @@ namespace ContosoUniversity.Controllers
                 case "date_desc":
                     students = students.OrderByDescending(s => s.EnrollmentDate);
                     break;
-                default:
+                default:  // Name ascending 
                     students = students.OrderBy(s => s.LastName);
                     break;
             }
+
             int pageSize = 3;
             int pageNumber = (page ?? 1);
             return View(students.ToPagedList(pageNumber, pageSize));
         }
 
-        // GET: Student/Details/5
+        // GET: /Student/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -75,18 +78,18 @@ namespace ContosoUniversity.Controllers
             return View(student);
         }
 
-        // GET: Student/Create
+        // GET: /Student/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Student/Create
+        // POST: /Student/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "LastName,FirstMidName,EnrollmentDate")] Student student)
+        public ActionResult Create([Bind(Include = "LastName, FirstMidName, EnrollmentDate")]Student student)
         {
             try
             {
@@ -97,15 +100,15 @@ namespace ContosoUniversity.Controllers
                     return RedirectToAction("Index");
                 }
             }
-            catch (RetryLimitExceededException)
+            catch (RetryLimitExceededException /* dex */)
             {
-                Trace.TraceError("Error");
-                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator");
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
             }
             return View(student);
         }
 
-        // GET: Student/Edit/5
+        // GET: /Student/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -120,12 +123,12 @@ namespace ContosoUniversity.Controllers
             return View(student);
         }
 
-        // POST: Student/Edit/5
+        // POST: /Student/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,LastName,FirstMidName,EnrollmentDate")] Student student)
+        public ActionResult Edit([Bind(Include = "ID, LastName, FirstMidName, EnrollmentDate")]Student student)
         {
             try
             {
@@ -136,16 +139,15 @@ namespace ContosoUniversity.Controllers
                     return RedirectToAction("Index");
                 }
             }
-            catch (RetryLimitExceededException)
+            catch (RetryLimitExceededException /* dex */)
             {
-                Trace.TraceError("Error");
-                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator");
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
             }
             return View(student);
         }
-
-        // GET: Student/Delete/5
-        public ActionResult Delete(int? id, bool? saveChangesError=false)
+        // GET: /Student/Delete/5
+        public ActionResult Delete(int? id, bool? saveChangesError = false)
         {
             if (id == null)
             {
@@ -163,8 +165,8 @@ namespace ContosoUniversity.Controllers
             return View(student);
         }
 
-        // POST: Student/Delete/5
-        [HttpPost, ActionName("Delete")]
+        // POST: /Student/Delete/5
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
@@ -174,9 +176,9 @@ namespace ContosoUniversity.Controllers
                 db.Students.Remove(student);
                 db.SaveChanges();
             }
-            catch (RetryLimitExceededException)
+            catch (RetryLimitExceededException/* dex */)
             {
-                Trace.TraceError("Error");
+                //Log the error (uncomment dex variable name and add a line here to write a log.
                 return RedirectToAction("Delete", new { id = id, saveChangesError = true });
             }
             return RedirectToAction("Index");

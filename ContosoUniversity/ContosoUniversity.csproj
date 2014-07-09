@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0AA9785B-12DC-41EE-BE38-DD18B365DF6F}</ProjectGuid>
+    <ProjectGuid>{DF021AA1-3663-4A2F-A744-18A1DC469C02}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -40,10 +40,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PagedList">
@@ -80,30 +80,34 @@
     </Reference>
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.Helpers.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.1.2\lib\net45\System.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Optimization">
-      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.1.2\lib\net45\System.Web.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -115,9 +119,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -138,38 +140,38 @@
     </Compile>
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\Logger.cs" />
-    <Compile Include="Migrations\201407081300303_InitialCreate.cs" />
-    <Compile Include="Migrations\201407081300303_InitialCreate.Designer.cs">
-      <DependentUpon>201407081300303_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201402242126344_InitialCreate.cs" />
+    <Compile Include="Migrations\201402242126344_InitialCreate.Designer.cs">
+      <DependentUpon>201402242126344_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201407081301062_MaxLengthOnNames.cs" />
-    <Compile Include="Migrations\201407081301062_MaxLengthOnNames.Designer.cs">
-      <DependentUpon>201407081301062_MaxLengthOnNames.cs</DependentUpon>
+    <Compile Include="Migrations\201402242138028_MaxLengthOnNames.cs" />
+    <Compile Include="Migrations\201402242138028_MaxLengthOnNames.Designer.cs">
+      <DependentUpon>201402242138028_MaxLengthOnNames.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201407081302054_ColumnFirstName.cs" />
-    <Compile Include="Migrations\201407081302054_ColumnFirstName.Designer.cs">
-      <DependentUpon>201407081302054_ColumnFirstName.cs</DependentUpon>
+    <Compile Include="Migrations\201402242139118_ColumnFirstName.cs" />
+    <Compile Include="Migrations\201402242139118_ColumnFirstName.Designer.cs">
+      <DependentUpon>201402242139118_ColumnFirstName.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201407081302338_ComplexDataModel.cs" />
-    <Compile Include="Migrations\201407081302338_ComplexDataModel.Designer.cs">
-      <DependentUpon>201407081302338_ComplexDataModel.cs</DependentUpon>
+    <Compile Include="Migrations\201402242150170_ComplexDataModel.cs" />
+    <Compile Include="Migrations\201402242150170_ComplexDataModel.Designer.cs">
+      <DependentUpon>201402242150170_ComplexDataModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201407081741155_DepartmentSP.cs" />
-    <Compile Include="Migrations\201407081741155_DepartmentSP.Designer.cs">
-      <DependentUpon>201407081741155_DepartmentSP.cs</DependentUpon>
+    <Compile Include="Migrations\201402251758056_DepartmentSP.cs" />
+    <Compile Include="Migrations\201402251758056_DepartmentSP.Designer.cs">
+      <DependentUpon>201402251758056_DepartmentSP.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201407081749504_RowVersion.cs" />
-    <Compile Include="Migrations\201407081749504_RowVersion.Designer.cs">
-      <DependentUpon>201407081749504_RowVersion.cs</DependentUpon>
+    <Compile Include="Migrations\201402251804219_RowVersion.cs" />
+    <Compile Include="Migrations\201402251804219_RowVersion.Designer.cs">
+      <DependentUpon>201402251804219_RowVersion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201407081840385_Inheritance.cs" />
-    <Compile Include="Migrations\201407081840385_Inheritance.Designer.cs">
-      <DependentUpon>201407081840385_Inheritance.cs</DependentUpon>
+    <Compile Include="Migrations\201402251853267_Inheritance.cs" />
+    <Compile Include="Migrations\201402251853267_Inheritance.Designer.cs">
+      <DependentUpon>201402251853267_Inheritance.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Department.cs" />
-    <Compile Include="Models\Enrollment.cs" />
+    <Compile Include="Models\Enrollments.cs" />
     <Compile Include="Models\Instructor.cs" />
     <Compile Include="Models\OfficeAssignment.cs" />
     <Compile Include="Models\Person.cs" />
@@ -189,22 +191,14 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Properties\PublishProfiles\ContosoWO.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -239,9 +233,30 @@
     <Content Include="Views\Department\Details.cshtml" />
     <Content Include="Views\Department\Edit.cshtml" />
     <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Course\UpdateCourseCredits.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <EmbeddedResource Include="Migrations\201402242126344_InitialCreate.resx">
+      <DependentUpon>201402242126344_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402242138028_MaxLengthOnNames.resx">
+      <DependentUpon>201402242138028_MaxLengthOnNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402242139118_ColumnFirstName.resx">
+      <DependentUpon>201402242139118_ColumnFirstName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402242150170_ComplexDataModel.resx">
+      <DependentUpon>201402242150170_ComplexDataModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402251758056_DepartmentSP.resx">
+      <DependentUpon>201402251758056_DepartmentSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402251804219_RowVersion.resx">
+      <DependentUpon>201402251804219_RowVersion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402251853267_Inheritance.resx">
+      <DependentUpon>201402251853267_Inheritance.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -249,29 +264,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201407081300303_InitialCreate.resx">
-      <DependentUpon>201407081300303_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407081301062_MaxLengthOnNames.resx">
-      <DependentUpon>201407081301062_MaxLengthOnNames.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407081302054_ColumnFirstName.resx">
-      <DependentUpon>201407081302054_ColumnFirstName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407081302338_ComplexDataModel.resx">
-      <DependentUpon>201407081302338_ComplexDataModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407081741155_DepartmentSP.resx">
-      <DependentUpon>201407081741155_DepartmentSP.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407081749504_RowVersion.resx">
-      <DependentUpon>201407081749504_RowVersion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407081840385_Inheritance.resx">
-      <DependentUpon>201407081840385_Inheritance.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -289,9 +281,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>52240</DevelopmentServerPort>
+          <DevelopmentServerPort>41787</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:52240/</IISUrl>
+          <IISUrl>http://localhost:41787/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
